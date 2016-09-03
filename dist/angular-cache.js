@@ -19,7 +19,7 @@
   } : function (obj) {
     return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj;
   };
-  
+
   /**
    * @method bubbleUp
    * @param {array} heap The heap.
@@ -1048,6 +1048,9 @@
     for (var cacheId in caches) {
       caches[cacheId].destroy();
     }
+    caches = {};
+  };
+  CacheFactory.disposeAll = function () {
     caches = {};
   };
   CacheFactory.clearAll = function () {
